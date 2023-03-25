@@ -11,6 +11,9 @@
 		CFF2E79529CF272100C16121 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF2E79429CF272100C16121 /* ContentView.swift */; };
 		CFF2E79729CF272300C16121 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFF2E79629CF272300C16121 /* Assets.xcassets */; };
 		CFF2E79A29CF272300C16121 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFF2E79929CF272300C16121 /* Preview Assets.xcassets */; };
+		CFF2E7A129CF276800C16121 /* WorldCities.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF2E7A029CF276800C16121 /* WorldCities.swift */; };
+		CFF2E7A329CF279D00C16121 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF2E7A229CF279D00C16121 /* LocationManager.swift */; };
+		CFF2E7A529CF27DD00C16121 /* TimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF2E7A429CF27DD00C16121 /* TimeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		CFF2E79429CF272100C16121 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CFF2E79629CF272300C16121 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CFF2E79929CF272300C16121 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CFF2E7A029CF276800C16121 /* WorldCities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldCities.swift; sourceTree = "<group>"; };
+		CFF2E7A229CF279D00C16121 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		CFF2E7A429CF27DD00C16121 /* TimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,9 @@
 			children = (
 				CFF2E79229CF272100C16121 /* SyngimeApp.swift */,
 				CFF2E79429CF272100C16121 /* ContentView.swift */,
+				CFF2E7A029CF276800C16121 /* WorldCities.swift */,
+				CFF2E7A229CF279D00C16121 /* LocationManager.swift */,
+				CFF2E7A429CF27DD00C16121 /* TimeViewModel.swift */,
 				CFF2E79629CF272300C16121 /* Assets.xcassets */,
 				CFF2E79829CF272300C16121 /* Preview Content */,
 			);
@@ -137,8 +146,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFF2E7A329CF279D00C16121 /* LocationManager.swift in Sources */,
+				CFF2E7A529CF27DD00C16121 /* TimeViewModel.swift in Sources */,
 				CFF2E79529CF272100C16121 /* ContentView.swift in Sources */,
 				CFF2E79329CF272100C16121 /* SyngimeApp.swift in Sources */,
+				CFF2E7A129CF276800C16121 /* WorldCities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,11 +282,13 @@
 				DEVELOPMENT_TEAM = Z6VC5V98NS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires access to your location to provide accurate time information.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -299,11 +313,13 @@
 				DEVELOPMENT_TEAM = Z6VC5V98NS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires access to your location to provide accurate time information.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
