@@ -43,16 +43,30 @@ struct ContentView: View {
     @State private var alertMessage = ""
     @State private var meetingStart: Date = Date()
     @State private var meetingEnd: Date = Date()
+    @State private var showCoordinates = false
     
     var body: some View {
         NavigationView {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     Section(header: Text("Your Location and Time").font(.headline)) {
-                        if let location = locationManager.location,
-                           let timeZone = locationManager.timeZone {
+                        HStack {
+                            Text("Your Location")
+                            Spacer()
+                            Button(action: {
+                                showCoordinates.toggle()
+                            }) {
+                                Image(systemName: "info.circle")
+                                    .foregroundColor(.blue)
+                            }
+                        }
+                        
+                        if showCoordinates, let location = locationManager.location {
                             Text("Latitude: \(location.coordinate.latitude)")
                             Text("Longitude: \(location.coordinate.longitude)")
+                        }
+                        
+                        if let timeZone = locationManager.timeZone {
                             Text("Time Zone: \(timeZone.identifier)")
                             Text("Your Time: \(Date().formatted(date: .abbreviated, time: .shortened))")
                         } else {
@@ -71,7 +85,7 @@ struct ContentView: View {
                     }
                     
                     if let selectedCity = timeViewModel.selectedCity {
-                        Text("Selected City Time: \(Date().toTimeZone(selectedCity.timeZone, from: locationManager.timeZone ?? TimeZone.current).formatted(date: .abbreviated, time: .shortened))")
+                        Text("\(Date().toTimeZone(selectedCity.timeZone, from: locationManager.timeZone ?? TimeZone.current).formatted(date: .abbreviated, time: .shortened))")
                     }
                     
                     Divider()
