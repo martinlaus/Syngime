@@ -21,6 +21,5 @@ class WorldCities: ObservableObject {
         WorldCity(name: "Tokyo", timeZone: TimeZone(identifier: "Asia/Tokyo")!),
         WorldCity(name: "Tallinn", timeZone: TimeZone(identifier: "Europe/Tallinn")!),
         WorldCity(name: "Frankfurt", timeZone: TimeZone(identifier: "Europe/Paris")!),
-        // Add more cities here
     ]
 }

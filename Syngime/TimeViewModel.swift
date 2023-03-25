@@ -17,6 +17,7 @@ extension Date {
 
 
 class TimeViewModel: ObservableObject {
+    @Published var selectedMeeting: Date?
     @Published var selectedCity: WorldCity?
     @Published var meetingRange: ClosedRange<Date> = Date()...Date()
     @Published var suggestedMeetings: [Date] = []
