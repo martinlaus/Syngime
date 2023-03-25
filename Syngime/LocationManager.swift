@@ -8,30 +8,6 @@
 import CoreLocation
 import Combine
 
-//class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-//    private let locationManager = CLLocationManager()
-//    @Published var location: CLLocation?
-//    @Published var timeZone: TimeZone?
-//
-//    override init() {
-//        super.init()
-//        self.locationManager.delegate = self
-//        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//        self.locationManager.requestWhenInUseAuthorization()
-//        self.locationManager.startUpdatingLocation()
-//    }
-//
-//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-//        guard let location = locations.last else { return }
-//        self.location = location
-//
-//        CLGeocoder().reverseGeocodeLocation(location) { placemarks, error in
-//            if let placemark = placemarks?.first {
-//                self.timeZone = placemark.timeZone
-//            }
-//        }
-//    }
-//}
 private func fetchTimeZone(for location: CLLocation, completion: @escaping (TimeZone?) -> Void) {
     let geocoder = CLGeocoder()
     geocoder.reverseGeocodeLocation(location) { placemarks, error in
@@ -50,6 +26,7 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var timeZone: TimeZone?
     
     private let locationManager = CLLocationManager()
+    private var locationUpdateTimer: Timer?
     
     override init() {
         super.init()
@@ -59,10 +36,19 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     func requestLocationAccess() {
         locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+        scheduleLocationUpdates()
+    }
+    
+    func scheduleLocationUpdates() {
+        self.locationManager.startUpdatingLocation()
+        locationUpdateTimer = Timer.scheduledTimer(withTimeInterval: 1800, repeats: true) { _ in
+            self.locationManager.startUpdatingLocation()
+            print("UpdatingLocation...")
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        locationManager.stopUpdatingLocation()
         guard let location = locations.last else { return }
         self.location = location
         fetchTimeZone(for: location) { timeZone in

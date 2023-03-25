@@ -14,8 +14,7 @@ struct ContentView: View {
     @StateObject private var worldCities = WorldCities()
     @StateObject private var timeViewModel = TimeViewModel()
 
-//    @State private var meetingRange: ClosedRange<Date> = Date()...Date()
-//
+
     @State private var meetingStart: Date = Date()
     @State private var meetingEnd: Date = Date()
 
@@ -29,7 +28,7 @@ struct ContentView: View {
                             Text("Latitude: \(location.coordinate.latitude)")
                             Text("Longitude: \(location.coordinate.longitude)")
                             Text("Time Zone: \(timeZone.identifier)")
-                            Text("Current Time: \(Date().formatted(date: .abbreviated, time: .shortened))")
+                            Text("Your Time: \(Date().formatted(date: .abbreviated, time: .shortened))")
                         } else {
                             Text("Retrieving location and time...")
                         }
@@ -57,6 +56,7 @@ struct ContentView: View {
                             let range = meetingStart...meetingEnd
                             timeViewModel.suggestMeetingTimes(deviceTimeZone: locationManager.timeZone, cityTimeZone: timeViewModel.selectedCity?.timeZone, range: range)
                         } else {
+                            print("Invalid Range")
                             // Handle the invalid range case, e.g., show an alert to the user
                         }
                     }
