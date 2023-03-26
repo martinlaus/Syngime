@@ -31,7 +31,7 @@ class TimeViewModel: ObservableObject {
             let deviceTime = currentDate
             let cityTime = deviceTime.toTimeZone(cityTimeZone, from: deviceTimeZone)
 
-            if Calendar.current.component(.hour, from: cityTime) >= 9 && Calendar.current.component(.hour, from: cityTime) <= 17 {
+            if Calendar.current.component(.hour, from: cityTime) >= 5 && Calendar.current.component(.hour, from: cityTime) <= 24 {
                 suggestions.append(deviceTime)
             }
 
